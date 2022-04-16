@@ -4,14 +4,16 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Hero from './Components/Hero/Hero';
 
+
 function App() {
   return (
     <div>
       <Header></Header>
       <Routes>
-        <Route path='/' element={<Hero></Hero>}>
-        </Route>
+        <Route path='/' element={<Hero></Hero>}></Route>
+       
       </Routes>
+     
     </div>
   );
 }
