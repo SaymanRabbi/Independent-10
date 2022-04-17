@@ -1,12 +1,11 @@
 import React, { useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import './Register.css'
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { async } from '@firebase/util';
-
 const Register = () => {
-    const [updateProfile, updating, error] = useUpdateProfile(auth);
+    const navigate = useNavigate()
+    const [updateProfile, , ] = useUpdateProfile(auth);
     const [
         createUserWithEmailAndPassword,
         user
@@ -14,7 +13,9 @@ const Register = () => {
         ,
         ,
     ] = useCreateUserWithEmailAndPassword(auth, { emailVerificationOptions: true });
-    console.log(user);
+    if (user) {
+       navigate('/')
+   }
     const [checked,setChecked]=useState(false)
     const name = useRef('')
     const email = useRef('')
@@ -29,7 +30,7 @@ const Register = () => {
         if (emailValue && passwordValue === confirmPassValue) {
             await createUserWithEmailAndPassword(emailValue, passwordValue)
             await updateProfile({ displayName: nameValue });
-            alert('Updated profile');
+           
        }
 }
 
