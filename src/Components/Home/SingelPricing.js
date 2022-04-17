@@ -4,7 +4,7 @@ import './SingelPricing.css'
 import Benifit from './Benifit';
 const SingelPricing = ({ price }) => {
     const { picture, name, balance,benifits } = price
-    console.log(price.benifits);
+    
    
     return (
     

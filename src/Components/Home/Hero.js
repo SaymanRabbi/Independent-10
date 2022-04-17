@@ -1,4 +1,5 @@
 import React from 'react';
+
 import DreamDiscover from './DreamDiscover';
 import Explore from './Explore';
 import './Hero.css'
@@ -6,6 +7,7 @@ import Pricing from './Pricing';
 import Slider from './Slider';
 import VisitorPlaces from './VisitorPlaces';
 const Hero = () => {
+  
     return (
         <div>
             <div className="" style={{height:'600px'}}>
