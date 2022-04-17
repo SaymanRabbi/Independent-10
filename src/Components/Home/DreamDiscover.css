@@ -1,0 +1,33 @@
+.DreamDiscover{
+    margin-top: 20px;
+    width: 100%;
+    height: 600px;
+    background-image: url(../../image//jeep-road.jpg);
+    background-size: cover;
+    background-position: center center;
+    padding: 0px 100px;
+}
+.text-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    margin:0 auto;
+   
+
+}
+.dream-text{
+    width: 380px;
+
+}
+.dream-text h1{
+    font-size: 90px;
+    font-weight:600;
+}
+.dream-img{
+    display: flex;
+    align-items: flex-end;
+    gap: 60px;
+   
+
+}

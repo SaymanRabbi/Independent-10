@@ -9,11 +9,13 @@ const Pricing = () => {
 
 
     return (
+        <div >
         <div className='row g-0 mt-5 px-5'>
             {
                 prices.map(price=> <SingelPricing price={price} key={price.id}></SingelPricing>)
             }
-        </div>
+            </div>
+            </div>
     );
 };
 

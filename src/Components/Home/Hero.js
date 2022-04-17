@@ -1,4 +1,5 @@
 import React from 'react';
+import DreamDiscover from './DreamDiscover';
 import Explore from './Explore';
 import './Hero.css'
 import Pricing from './Pricing';
@@ -12,7 +13,7 @@ const Hero = () => {
             <div className='container'>
                 <h1 className='display-1' style={{fontWeight:"600"}}>Explore</h1>
                 <h1 className='display-1' style={{fontWeight:"600"}}>Amazing Places</h1>
-                <button className='button'>Learn More &rarr;</button>
+                <button className='button mt-3'>Learn More &rarr;</button>
             </div>
                 </div>
             </div>
@@ -20,6 +21,7 @@ const Hero = () => {
             <Explore></Explore>
             <VisitorPlaces></VisitorPlaces>
             <Pricing></Pricing>
+            <DreamDiscover></DreamDiscover>
             </div>
     );
 };

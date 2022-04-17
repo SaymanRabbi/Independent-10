@@ -1,5 +1,6 @@
 .custom-card-img{
     position: relative;
+   
 }
 .card-info{
     position: absolute;
@@ -24,4 +25,27 @@
     right: 23px;
     background-color: #d9e4dd;
     color: #1b1b1b;
+    z-index:1000;
+}
+.check-out{
+    width: 150px;
+    height: 50px;
+    color: white;
+    background-color: #1b1b1b;
+    border: none;
+    margin-top: 5px;
+    font-size: 18px;
+    border: 2px solid transparent;
+    font-weight: 600;
+    transition: all .8s;
+    margin-top: 30px;
+}
+.check-out:hover{
+    background-color: #D9E4DD;
+    color: black;
+    border: 2px solid black;
+}
+
+.custom-card-img:hover .img-hovar{
+ transform: scale(1.1);
 }
