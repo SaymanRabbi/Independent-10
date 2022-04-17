@@ -31,3 +31,27 @@
     border-bottom: 4px solid black;
     width: fit-content;
 }
+.custom-position{
+    position: relative;
+}
+.custom-absoulte{
+    position: absolute;
+    top: 70%;
+    color: white;
+    left: 20%;
+    transition: all .5s;
+    
+}
+.custom-position:hover .custom-absoulte p{
+    display: block;
+    cursor: pointer;
+    
+}
+.custom-absoulte h2{
+    font-size: 50px;
+    font-weight: 700;
+}
+.custom-absoulte p{
+    display: none;
+    
+}
