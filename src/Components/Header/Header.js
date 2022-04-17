@@ -2,10 +2,18 @@ import React from 'react';
 import { Container, Nav, Navbar} from 'react-bootstrap';
 import './Header.css'
 import logo from '../../image/thetrack.png'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 const Header = () => {
-  const {pathname} = useLocation();
+  const [user] = useAuthState(auth);
+  const { pathname } = useLocation();
+  const logout = () => {
+    signOut(auth)
+
+  }
  
     return (
         <div className='header'>
@@ -19,11 +27,12 @@ const Header = () => {
     </Navbar.Brand>
     <Navbar.Toggle className='bg-dark' aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="ms-auto">
-        <Nav.Link as={Link} to='/' className='text-white fs-5'  >Home</Nav.Link>
-        <Nav.Link as={Link} to='/login' className='text-white fs-5' >Login</Nav.Link>
-        <Nav.Link as={Link} to='/register' className='text-white fs-5' >Register</Nav.Link>
-        <Nav.Link as={Link} to='/blog' className='text-white fs-5' >Blog</Nav.Link>
+              <Nav className="ms-auto">
+              
+        <NavLink   to='/' className={({isActive})=>isActive?"active-link":"link"}  >Home</NavLink>
+        {user?<NavLink onClick={logout} to='/login' className={({isActive})=>isActive?"active-link":"link"} >LogOut</NavLink>:<NavLink to='/login' className={({isActive})=>isActive?"active-link":"link"} >Login</NavLink>}
+                {user ? <p className='link'>{ user.displayName}</p>:<NavLink  to='/register' className={({isActive})=>isActive?"active-link":"link"} >Register</NavLink>}
+        <NavLink  to='/blog' className={({isActive})=>isActive?"active-link":"link"} >Blog</NavLink>
       </Nav>
     </Navbar.Collapse>
   </Container>

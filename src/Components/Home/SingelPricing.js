@@ -2,6 +2,7 @@ import React from 'react';
 import './SingelPricing.css'
 
 import Benifit from './Benifit';
+import { Link } from 'react-router-dom';
 const SingelPricing = ({ price }) => {
     const { picture, name, balance,benifits } = price
     
@@ -24,7 +25,7 @@ const SingelPricing = ({ price }) => {
                 {
                     benifits.map(benifit=><Benifit benifit={benifit} key={Math.random()}></Benifit>)
                 }
-                <button className='check-out'>Check Out &rarr;</button>
+               <Link to={'/checkout'}> <button className='check-out'>Check Out &rarr;</button> </Link>
             </div>
             </div>
             

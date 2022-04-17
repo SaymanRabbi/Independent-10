@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import auth from '../../firebase.init';
 import './Register.css'
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 const Register = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate()
     const [updateProfile, , ] = useUpdateProfile(auth);
     const [
         createUserWithEmailAndPassword,
@@ -12,9 +12,9 @@ const Register = () => {
         ,
         ,
         ,
-    ] = useCreateUserWithEmailAndPassword(auth, { emailVerificationOptions: true });
+    ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     if (user) {
-       navigate('/')
+      navigate('/')
    }
     const [checked,setChecked]=useState(false)
     const name = useRef('')
@@ -49,22 +49,22 @@ const Register = () => {
               <form onSubmit={HandelClick}>
 
                 <div className="form-outline mb-4">
-                  <input type="text" ref={name} id="form3Example1cg" className="form-control form-control-lg bg-white" />
+                  <input type="text" ref={name} id="form3Example1cg" className="form-control form-control-lg bg-white" required />
                   <label className="form-label " >Your Name</label>
                 </div>
 
                 <div className="form-outline mb-4">
-                  <input type="email" ref={email} id="form3Example3cg" className="form-control form-control-lg bg-white" />
+                  <input type="email" ref={email} id="form3Example3cg" className="form-control form-control-lg bg-white" required/>
                   <label className="form-label" >Your Email</label>
                 </div>
 
                 <div className="form-outline mb-4">
-                  <input type="password" ref={password} id="form3Example4cg" className="form-control form-control-lg bg-white" />
+                  <input type="password" ref={password} id="form3Example4cg" className="form-control form-control-lg bg-white" required/>
                   <label className="form-label" >Password</label>
                 </div>
 
                 <div className="form-outline mb-4">
-                  <input type="password" ref={confirmPass} id="form3Example4cdg" className="form-control form-control-lg bg-white" />
+                  <input type="password" ref={confirmPass} id="form3Example4cdg" className="form-control form-control-lg bg-white" required/>
                   <label className="form-label" >Repeat your password</label>
                 </div>
 

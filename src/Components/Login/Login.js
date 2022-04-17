@@ -1,19 +1,31 @@
-import React, { useRef } from 'react';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useRef} from 'react';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {  useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 const Login = () => {
-    const navigate = useNavigate()
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const navigate = useNavigate()
+  let location = useLocation();
+  let from = location.state?.from?.pathname || "/";
     const [
         signInWithEmailAndPassword,
         user
         ,
         ,
-        ,
+        error
     ] = useSignInWithEmailAndPassword(auth);
+   
+     
+  useEffect(() => {
     if (user) {
-        navigate('/')
+      navigate(from, { replace: true });
+      toast("Login SuccessFully")
     }
+       
+      },[user,navigate,from])
+   
     const email = useRef('')
     const password = useRef('')
     const HandelClick = async(event) => {
@@ -25,10 +37,22 @@ const Login = () => {
         if (emailValue && passwordValue) {
             signInWithEmailAndPassword(emailValue,passwordValue)
        }
-}
+  }
+  const updatepass = async()=>{
+    const emailValue = email.current.value
+   
+    if (emailValue) {
+     await sendPasswordResetEmail(emailValue)
+     toast("Send Email Succesfully")
+    }
+    else {
+      toast("Provide Your Email")
+    }
+  }
      return (
         <div   style={{minHeight:"100vh"}}>
-        <section >
+         <section >
+           <ToastContainer/>
    <div className="mask d-flex align-items-center h-100 gradient-custom-3 py-5">
     <div className="container h-100">
    <div className="row d-flex justify-content-center align-items-center h-100">
@@ -40,17 +64,20 @@ const Login = () => {
            <form onSubmit={HandelClick}>
 
              <div className="form-outline mb-4">
-               <input type="email" ref={email} id="form3Example3cg" className="form-control form-control-lg bg-white" />
+               <input type="email" ref={email} id="form3Example3cg" className="form-control form-control-lg bg-white" required/>
                <label className="form-label" >Your Email</label>
              </div>
 
              <div className="form-outline mb-4">
-               <input type="password" ref={password} id="form3Example4cg" className="form-control form-control-lg bg-white" />
+               <input type="password" ref={password} id="form3Example4cg" className="form-control form-control-lg bg-white" required/>
                <label className="form-label" >Password</label>
-                                             </div>
+                         </div>
+                         
+                         {error ? <p className='text-danger mt-0 mb-2'>{error.message}</p>:''}
                                              <div className="d-flex justify-content-center">
                   <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
-                </div>
+                         </div>
+                         <p className="text-center text-muted mt-5 mb-0"><span className="fw-bold text-body"><span onClick={updatepass} className='text-danger' style={{cursor:'pointer'}}>Forget Password?</span></span></p>
            </form>
         </div>
        </div>
