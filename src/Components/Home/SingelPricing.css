@@ -1,0 +1,27 @@
+.custom-card-img{
+    position: relative;
+}
+.card-info{
+    position: absolute;
+     top:20% ;
+     left: 20%;
+     color: white;
+   
+}
+.custom-line{
+    display: block;
+    width: 150px;
+    border: 1px solid white;
+    margin: auto;
+}
+.qodef-m-label{
+   
+    border-radius: 50px 0 0 50px;
+    transform: rotate(-90deg) translate(0,-100%);
+    transform-origin: right top;
+    padding: 5px 15px;
+    position: absolute;
+    right: 23px;
+    background-color: #d9e4dd;
+    color: #1b1b1b;
+}

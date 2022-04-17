@@ -1,6 +1,7 @@
 import React from 'react';
 import Explore from './Explore';
 import './Hero.css'
+import Pricing from './Pricing';
 import Slider from './Slider';
 import VisitorPlaces from './VisitorPlaces';
 const Hero = () => {
@@ -18,6 +19,7 @@ const Hero = () => {
             <Slider></Slider>
             <Explore></Explore>
             <VisitorPlaces></VisitorPlaces>
+            <Pricing></Pricing>
             </div>
     );
 };

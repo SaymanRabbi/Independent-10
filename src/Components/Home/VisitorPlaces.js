@@ -4,10 +4,11 @@ import turky from '../../image/mosq-650x650.jpg'
 import japan from '../../image/smbg-650x650.jpg'
 import ireland from '../../image/vdbrg-650x650.jpg'
 const VisitorPlaces = () => {
+
     return (
         <div className='mt-5'>
             <div className="row g-0 ">
-                <h2 className='text-center display-2 mb-5' style={{fontWeight:'500'}}> <span className='explore-more'>HisTo<span className='text-danger'>RiCal</span> </span> Place</h2>
+                <h2 className='text-center display-3 mb-5' style={{fontWeight:'500'}}> <span className='explore-more'>HisTo<span className='text-danger'>RiCal</span> </span> Place</h2>
                 <div className="col-3 custom-position">
                     <img src={maxico} className='w-100' alt="" />
                     <div className='custom-absoulte'>
