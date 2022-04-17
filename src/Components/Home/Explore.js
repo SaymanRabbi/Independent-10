@@ -1,27 +1,9 @@
 import React from 'react';
-import './Hero.css'
 import maping from '../../image/mapping.jpg'
-const Hero = () => {
+const Explore = () => {
     return (
         <div>
-            <div className="" style={{height:'600px'}}>
-        <div className='hero'>
-            <div className='container'>
-                <h1 className='display-1' style={{fontWeight:"600"}}>Explore</h1>
-                <h1 className='display-1' style={{fontWeight:"600"}}>Amazing Places</h1>
-                <button className='button'>Learn More &rarr;</button>
-            </div>
-                </div>
-            </div>
-            
-         
-
-
-
-
-
-            {/* Explre Section-------- */}
-            <div className="explore row g-0">
+            <div className="explore row g-0 mt-5">
                 <h1 className='text-center display-2 mb-5' style={{fontWeight:"500"}}>Explore <span className='explore-more'>More</span> </h1>
                 <div className="col-6 d-flex align-items-center justify-content-center">
                     <div className='w-75 mx-auto'>
@@ -39,10 +21,8 @@ const Hero = () => {
                 </div>
 
             </div>
-
-
-            </div>
+        </div>
     );
 };
 
-export default Hero;
+export default Explore;

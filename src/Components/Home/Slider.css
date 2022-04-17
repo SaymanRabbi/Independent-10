@@ -1,0 +1,15 @@
+.button-custom{
+    font-size: 20px;
+    cursor: pointer;
+    transition: all .5s;
+}
+.span{
+    border-bottom: 2px solid black;
+    transition: all .5s;
+}
+.button-custom:hover{
+    color: #D9E4DD;
+}
+.button-custom:hover .span{
+    border-bottom:none
+}

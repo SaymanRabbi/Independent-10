@@ -2,7 +2,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './Components/Header/Header';
-import Hero from './Components/Hero/Hero';
+import Hero from './Components/Home/Hero';
+
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Hero></Hero>}></Route>
-       
+        
       </Routes>
      
     </div>
