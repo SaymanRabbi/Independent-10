@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './SingelPricing.css'
 
 import Benifit from './Benifit';
 import { Link } from 'react-router-dom';
+import { Contextapi } from '../../App';
+
 const SingelPricing = ({ price }) => {
+    const value = useContext(Contextapi)
+    const [, setData] = value;
+    const getValue = (data) => {
+        setData(data)
+    }
     const { picture, name, balance,benifits } = price
-    
-   
     return (
-    
         <div className='col-md-6 col-lg-4  p-4 custom-card-img'>
              <span className='qodef-m-label'>New</span>
             <div style={{overflow:"hidden"}}>
@@ -25,7 +29,7 @@ const SingelPricing = ({ price }) => {
                 {
                     benifits.map(benifit=><Benifit benifit={benifit} key={Math.random()}></Benifit>)
                 }
-               <Link to={'/checkout'}> <button className='check-out'>Check Out &rarr;</button> </Link>
+               <Link to={'/checkout'}> <button className='check-out' onClick={()=>getValue(price)}>Check Out &rarr;</button> </Link>
             </div>
             </div>
             

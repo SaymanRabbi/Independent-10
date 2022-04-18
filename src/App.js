@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { createContext, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Blog from './Components/Blog/Blog';
@@ -11,11 +12,14 @@ import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 
-
+export const Contextapi = createContext()
 
 function App() {
+  const [data, setData] = useState([])
+  console.log(data);
   return (
     <div>
+      <Contextapi.Provider value={[data,setData]}>
       <Header></Header>
       <Routes>
         <Route path='/' element={<Hero></Hero>}></Route>
@@ -29,7 +33,8 @@ function App() {
         } ></Route>
         <Route path='*' element={<DefultPage></DefultPage>}></Route>
       </Routes>
-    <Bottom></Bottom>
+        <Bottom></Bottom>
+        </Contextapi.Provider>
     </div>
   );
 }

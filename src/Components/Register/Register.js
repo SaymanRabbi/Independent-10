@@ -42,9 +42,11 @@ const Register = () => {
 }
   const loginwithgoogle = () => {
     signInWithGoogle()
+    // toast('Login Sucess')
   }
   const loginWithGithub = () => {
-    signInWithGithub()  
+    signInWithGithub() 
+    
   }
 
     return (
