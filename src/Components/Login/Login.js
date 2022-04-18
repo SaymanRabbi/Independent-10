@@ -1,11 +1,15 @@
 import React, { useEffect, useRef} from 'react';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {  useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import google from '../../image/google.svg'
+import github from '../../image/download.png'
 const Login = () => {
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const [signInWithGoogle, googleuser, , ] = useSignInWithGoogle(auth);
+  const [signInWithGithub, githubuser, ,] = useSignInWithGithub(auth);
   const navigate = useNavigate()
   let location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -19,12 +23,12 @@ const Login = () => {
    
      
   useEffect(() => {
-    if (user) {
-      navigate(from, { replace: true });
+    if (user || googleuser || githubuser) {
       toast("Login SuccessFully")
+      navigate(from, { replace: true });
     }
        
-      },[user,navigate,from])
+      },[user,navigate,from,googleuser,githubuser])
    
     const email = useRef('')
     const password = useRef('')
@@ -48,6 +52,14 @@ const Login = () => {
     else {
       toast("Provide Your Email")
     }
+  }
+  const loginwithgoogle = () => {
+    signInWithGoogle()
+   
+  }
+  const loginWithGithub = () => {
+    signInWithGithub()
+   
   }
      return (
         <div   style={{minHeight:"100vh"}}>
@@ -77,6 +89,14 @@ const Login = () => {
                                              <div className="d-flex justify-content-center">
                   <button type="submit" className="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Login</button>
                          </div>
+                         <div className="d-flex justify-content-center mt-3">
+                          <button onClick={loginwithgoogle} className="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >
+                            <img src={google} className='mr-2' alt="" />
+                            Google Login</button>
+                          <button onClick={loginWithGithub} className="btn btn-success btn-block btn-lg gradient-custom-4 text-body ms-3" >
+                            <img src={github} style={{width:'30px',height:'30px'}} alt="" />
+                            Github Login</button>
+                </div>
                          <p className="text-center text-muted mt-5 mb-0"><span className="fw-bold text-body"><span onClick={updatepass} className='text-danger' style={{cursor:'pointer'}}>Forget Password?</span></span></p>
            </form>
         </div>

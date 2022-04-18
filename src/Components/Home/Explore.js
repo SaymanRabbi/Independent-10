@@ -9,8 +9,8 @@ const Explore = () => {
                     <div className='w-75 mx-auto'>
                         <p>LET THE JOURNEY BEGIN</p>
                     <h2 className='display-2' style={{fontWeight:'600'}}>Explore Now</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus nisl vitae magna pulvinar laoreet.</p>
+                    <p>The Most Beautiful Places to Visit in Indonesia September 13, 2021 Socio Lib Tips Lorem ipsum dolor sit amet, consectetu</p>
+                    <p>Dont Miss these Street Foods in Bangkok September 13, 2021 Socio Lib Tips Lorem ipsum dolor sit amet, consectetur</p>
                     <button className='button'>View Guide &rarr;</button>
                     </div>
                 </div>
