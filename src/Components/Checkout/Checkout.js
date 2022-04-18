@@ -7,7 +7,17 @@ const Checkout = () => {
     const {picture,balance,name} = data
     const handelClick = (event) => {
         event.preventDefault()
-        toast('thank you Submetting')
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const address = event.target.address.value
+        const number = event.target.number.value;
+        if (name && email && address && number) {
+            
+            toast('thank you Submetting')
+        }
+        else {
+            toast('All Input Required')
+        }
     }
     return (
 
@@ -17,25 +27,23 @@ const Checkout = () => {
                 <img src={picture} style={{ width: "350px", height: "350px" }} alt="" />
                 <h3 className='text-center'>{name}</h3>
                 <h3 className='text-center'>{balance}</h3>
-                <Form>
+                <Form onSubmit={handelClick}>
                 <Form.Group className="mb-3" >
    
-            <Form.Control  className='bg-white' type="text" placeholder="Your Name" required/>
+            <Form.Control  className='bg-white' name='name' type="text" placeholder="Your Name" />
                     </Form.Group>
                     
          <Form.Group className="mb-3" >
-         <Form.Control  className='bg-white' type="email" placeholder="Enter email" required/>
+         <Form.Control  className='bg-white' name='email' type="email" placeholder="Enter email" />
                     </Form.Group>
 
                     <Form.Group className="mb-3" >
-    <Form.Control  className='bg-white' type="text" placeholder="Enter Address" required/>
+    <Form.Control  className='bg-white' type="text" name='address' placeholder="Enter Address" />
                     </Form.Group>
                     <Form.Group className="mb-3" >
-    <Form.Control className='bg-white' type="number" placeholder="Phone Number" required/>
+    <Form.Control className='bg-white' name='number' type="number" placeholder="Phone Number" />
   </Form.Group>
-  <Button onClick={handelClick} variant="primary" type="submit">
-    Submit
-  </Button>
+  <input  className='btn btn-primary' type="submit" value={'Submit'}/>
 </Form>
 
 <ToastContainer></ToastContainer>
