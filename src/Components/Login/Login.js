@@ -1,13 +1,13 @@
 import React, { useEffect, useRef} from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 import {  Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import google from '../../image/google.svg'
 import github from '../../image/download.png'
 const Login = () => {
-  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail, , passerror] = useSendPasswordResetEmail(auth);
   const [signInWithGoogle, googleuser, , ] = useSignInWithGoogle(auth);
   const [signInWithGithub, githubuser, ,] = useSignInWithGithub(auth);
   const navigate = useNavigate()
@@ -20,11 +20,16 @@ const Login = () => {
         ,
         error
     ] = useSignInWithEmailAndPassword(auth);
-   
-     
+    
+    
+  useEffect(() => {
+    if (error?.message||passerror?.message) {
+      toast.error('user Not Found',{id:'Login'})
+    }
+   },[error?.message,passerror?.message])
   useEffect(() => {
     if (user || googleuser || githubuser) {
-      toast("Login SuccessFully")
+      toast.success("Login SuccessFully",{id:3})
       navigate(from, { replace: true });
     }
        
@@ -39,15 +44,18 @@ const Login = () => {
         const passwordValue = password.current.value
         
         if (emailValue && passwordValue) {
-            signInWithEmailAndPassword(emailValue,passwordValue)
-       }
+          signInWithEmailAndPassword(emailValue, passwordValue)
+          
+      }
+      
   }
-  const updatepass = async()=>{
+  const updatepass = ()=>{
     const emailValue = email.current.value
    
     if (emailValue) {
-     await sendPasswordResetEmail(emailValue)
-     toast("Send Email Succesfully")
+     sendPasswordResetEmail(emailValue)
+        toast.success("Send Email Succesfully",{id:'success'})
+     
     }
     else {
       toast("Provide Your Email")

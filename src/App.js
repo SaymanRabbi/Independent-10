@@ -12,7 +12,8 @@ import Hero from './Components/Home/Hero';
 import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
-
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 export const Contextapi = createContext()
 
 function App() {
@@ -20,7 +21,8 @@ function App() {
   return (
     <div>
       <Contextapi.Provider value={[data,setData]}>
-      <Header></Header>
+        <Header></Header>
+        <ToastContainer></ToastContainer>
       <Routes>
         <Route path='/' element={<Hero></Hero>}></Route>
         <Route path='/blog' element={<Blog></Blog>} ></Route>
