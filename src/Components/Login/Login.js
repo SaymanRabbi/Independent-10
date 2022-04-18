@@ -7,7 +7,7 @@ import auth from '../../firebase.init';
 import google from '../../image/google.svg'
 import github from '../../image/download.png'
 const Login = () => {
-  const [sendPasswordResetEmail, , passerror] = useSendPasswordResetEmail(auth);
+  const [sendPasswordResetEmail, , ] = useSendPasswordResetEmail(auth);
   const [signInWithGoogle, googleuser, , ] = useSignInWithGoogle(auth);
   const [signInWithGithub, githubuser, ,] = useSignInWithGithub(auth);
   const navigate = useNavigate()
@@ -22,11 +22,7 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
     
     
-  useEffect(() => {
-    if (error?.message||passerror?.message) {
-      toast.error('user Not Found',{id:'Login'})
-    }
-   },[error?.message,passerror?.message])
+  
   useEffect(() => {
     if (user || googleuser || githubuser) {
       toast.success("Login SuccessFully",{id:3})

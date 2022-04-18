@@ -13,7 +13,7 @@ import Login from './Components/Login/Login';
 import Register from './Components/Register/Register';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
 import 'react-toastify/dist/ReactToastify.css';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, } from 'react-toastify';
 export const Contextapi = createContext()
 
 function App() {
