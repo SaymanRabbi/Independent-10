@@ -20,7 +20,7 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
   useEffect(() => {
     if (user || googleuser || githubuser) {
-      toast('Login Sucess')
+      toast.success('Login Sucess',{id:'register'})
       navigate('/')
    }
    },[user,navigate,googleuser,githubuser])
@@ -102,10 +102,10 @@ const Register = () => {
                         <div className="d-flex justify-content-center mt-3">
                           <button onClick={loginwithgoogle} className="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >
                             <img src={google} className='mr-2' alt="" />
-                            Google Login</button>
+                            Google </button>
                           <button onClick={loginWithGithub} className="btn btn-success btn-block btn-lg gradient-custom-4 text-body ms-3" >
                             <img src={github} style={{width:'30px',height:'30px'}} alt="" />
-                            Github Login</button>
+                            Github </button>
                 </div>
 
                 <p className="text-center text-muted mt-5 mb-0">Have already an account? <span className="fw-bold text-body"><Link to='/login'>Login here</Link></span></p>

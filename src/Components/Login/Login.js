@@ -2,7 +2,7 @@ import React, { useEffect, useRef} from 'react';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {  useLocation, useNavigate } from 'react-router-dom';
+import {  Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import google from '../../image/google.svg'
 import github from '../../image/download.png'
@@ -92,11 +92,12 @@ const Login = () => {
                          <div className="d-flex justify-content-center mt-3">
                           <button onClick={loginwithgoogle} className="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >
                             <img src={google} className='mr-2' alt="" />
-                            Google Login</button>
+                            Google</button>
                           <button onClick={loginWithGithub} className="btn btn-success btn-block btn-lg gradient-custom-4 text-body ms-3" >
                             <img src={github} style={{width:'30px',height:'30px'}} alt="" />
-                            Github Login</button>
-                </div>
+                            Github</button>
+                         </div>
+                         <p className="text-center text-muted mt-5 mb-0">Don't have Account? <span className="fw-bold text-body"><Link to='/register'>Register here</Link></span></p>
                          <p className="text-center text-muted mt-5 mb-0"><span className="fw-bold text-body"><span onClick={updatepass} className='text-danger' style={{cursor:'pointer'}}>Forget Password?</span></span></p>
            </form>
         </div>

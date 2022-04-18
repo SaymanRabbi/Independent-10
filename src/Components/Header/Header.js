@@ -33,6 +33,7 @@ const Header = () => {
         {user?<NavLink onClick={logout} to='/login' className={({isActive})=>isActive?"active-link":"link"} >Log-out</NavLink>:<NavLink to='/login' className={({isActive})=>isActive?"active-link":"link"} >Login</NavLink>}
                 {user ? <small className='link'>{ user.displayName}</small>:<NavLink  to='/register' className={({isActive})=>isActive?"active-link":"link"} >Register</NavLink>}
         <NavLink  to='/blog' className={({isActive})=>isActive?"active-link":"link"} >Blog</NavLink>
+        <NavLink  to='/about' className={({isActive})=>isActive?"active-link":"link"} >About</NavLink>
       </Nav>
     </Navbar.Collapse>
   </Container>

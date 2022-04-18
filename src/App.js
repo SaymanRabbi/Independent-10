@@ -2,6 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { createContext, useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import About from './Components/About/About';
 import Blog from './Components/Blog/Blog';
 import Checkout from './Components/Checkout/Checkout';
 import DefultPage from './Components/DefultPage/DefultPage';
@@ -16,7 +17,6 @@ export const Contextapi = createContext()
 
 function App() {
   const [data, setData] = useState([])
-  console.log(data);
   return (
     <div>
       <Contextapi.Provider value={[data,setData]}>
@@ -31,7 +31,8 @@ function App() {
             <Checkout></Checkout>
           </RequireAuth>
         } ></Route>
-        <Route path='*' element={<DefultPage></DefultPage>}></Route>
+          <Route path='/about' element={<About></About>}></Route>
+          <Route path='*' element={<DefultPage></DefultPage>}></Route>
       </Routes>
         <Bottom></Bottom>
         </Contextapi.Provider>

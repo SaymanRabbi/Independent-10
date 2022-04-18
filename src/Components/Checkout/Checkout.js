@@ -13,7 +13,7 @@ const Checkout = () => {
         const number = event.target.number.value;
         if (name && email && address && number) {
             
-            toast('thank you Submetting')
+            toast('thank you for Submeting from')
         }
         else {
             toast('All Input Required')
