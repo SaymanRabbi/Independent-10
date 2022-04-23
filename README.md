@@ -1,11 +1,10 @@
 This project was crate by react
-[Track Travel Guide](https://github.com/facebook/create-react-app).
+[Track Travel Guide](https://assignment-ten-b5c83.web.app/).
 
-- What Feature are use to create this react website?
-
-* ####React App
-* Responsive part to cover react bootstrap
-* Hero icon library use for icons
-* React router use for dynamic route
-* Firebase AuthenTication
-* react-elastic-carousel for slider
+- ####Technology
+- React App
+- React Bootstra
+- Hero icon
+- React Router
+- Firebase AuthenTication
+- react-elastic-carousel
